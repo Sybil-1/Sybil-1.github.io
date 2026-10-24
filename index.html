@@ -1,81 +1,47 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欢迎来到 Sybil 的树洞</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* 关键修改：这里加上了背景图设置 */
-        body {
-            width: 100vw; height: 100vh;
-            
-            /* 1. 替换为你的图片 */
-            background-image: url('bg.jpg'); 
-            /* 2. 图片铺满屏幕 */
-            background-size: cover; 
-            /* 3. 图片居中 */
-            background-position: center; 
-            /* 4. 防止图片重复 */
-            background-repeat: no-repeat; 
-            /* 5. 兜底颜色：万一图片没加载出来，是深蓝色而不是白屏 */
-            background-color: #06141b; 
-            
-            overflow: hidden;
-            font-family: 'Microsoft YaHei', sans-serif;
-            position: relative; 
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的第一个网站</title>
 
-        .door {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%); 
-            width: 260px; 
-            height: 400px;
-            cursor: pointer;
-            border-radius: 130px 130px 0 0; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-decoration: none;
-            /* 这里稍微降低了边框的透明度，让它更融入背景图 */
-            border: 2px solid rgba(74, 124, 124, 0.5); 
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            transition: all 0.4s ease;
-        }
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+    }
 
-        .door-left { left: 15%; }
-        .door-right { right: 15%; }
-        
-        .door:hover {
-            box-shadow: 0 0 50px rgba(0, 255, 255, 0.8), inset 0 0 30px rgba(0, 255, 255, 0.4);
-            border-color: #00ffff;
-            transform: translateY(-55%);
-        }
-        
-        .door-text {
-            color: #fff; 
-            font-size: 1.3rem; 
-            font-weight: bold;
-            background: rgba(0, 0, 0, 0.7); 
-            padding: 15px 25px;
-            border-radius: 15px; 
-            text-align: center; 
-            white-space: nowrap; 
-        }
-    </style>
+    .card {
+      width: 80%;
+      max-width: 600px;
+      padding: 50px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 42px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+  </style>
 </head>
+
 <body>
-
-    <a href="#" onclick="alert('左边门通了！')" class="door door-left">
-        <div class="door-text">🌱 查看我的成长轨迹</div>
-    </a>
-
-    <a href="#" onclick="alert('右边门通了！')" class="door door-right">
-        <div class="door-text">🧩 测测我们的契合程度</div>
-    </a>
-
+  <div class="card">
+    <h1>你好，GitHub Pages！</h1>
+    <p>这是我部署的第一个静态网页。</p>
+  </div>
 </body>
 </html>

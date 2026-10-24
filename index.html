@@ -1,47 +1,107 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的第一个网站</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎来到 Sybil 的树洞</title>
+    <style>
+        /* 重置基础样式，去掉白边 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: Arial, sans-serif;
-      color: white;
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-    }
+        /* 整个网页铺满屏幕，并设置背景图 */
+        body {
+            width: 100vw;
+            height: 100vh;
+            /* 这里的 url 替换成了你的图片名字 */
+            background-image: url('bg.jpg'); 
+            background-size: cover; /* 让图片铺满整个屏幕 */
+            background-position: center; /* 图片居中显示 */
+            background-repeat: no-repeat;
+            overflow: hidden; /* 防止出现滚动条 */
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
 
-    .card {
-      width: 80%;
-      max-width: 600px;
-      padding: 50px;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-    }
+        /* 门的容器，用来定位两扇门的位置 */
+        .doors-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            /* 如果发现热区没对准门，可以通过调整这里的 padding 或者 transform 来微调 */
+        }
 
-    h1 {
-      font-size: 42px;
-    }
+        /* 每一扇门的通用样式（我们在这里设置透明热区和悬停效果） */
+        .door {
+            position: absolute;
+            top: 25%; /* 距离顶部的位置 */
+            width: 22%; /* 门的宽度（根据你的图调整） */
+            height: 45%; /* 门的高度 */
+            cursor: pointer;
+            border-radius: 50% 50% 0 0; /* 模拟拱门形状 */
+            transition: all 0.4s ease; /* 让发光和文字出现变得平滑 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
 
-    p {
-      font-size: 18px;
-      line-height: 1.8;
-    }
-  </style>
+        /* 左边门的位置 */
+        .door-left {
+            left: 15%; 
+        }
+
+        /* 右边门的位置 */
+        .door-right {
+            right: 15%;
+        }
+
+        /* 提示文字的样式（默认隐藏，透明） */
+        .door-text {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px 25px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.3);
+            opacity: 0; /* 默认不可见 */
+            transform: translateY(10px); /* 默认稍微往下沉一点点 */
+            transition: all 0.3s ease;
+            text-align: center;
+            pointer-events: none; /* 让鼠标事件穿透给后面的门 */
+        }
+
+        /* 鼠标悬停时的效果：门发光 + 文字浮现 */
+        .door:hover {
+            /* 内发光效果，模拟门缝透出神秘光芒 */
+            box-shadow: inset 0 0 50px rgba(0, 255, 255, 0.4), 0 0 30px rgba(0, 255, 255, 0.2);
+            background: rgba(0, 255, 255, 0.05); /* 微微的蓝色滤镜 */
+            backdrop-filter: blur(2px); /* 门背后的图微微模糊 */
+        }
+
+        .door:hover .door-text {
+            opacity: 1; /* 文字显现 */
+            transform: translateY(0); /* 文字回正 */
+        }
+
+    </style>
 </head>
-
 <body>
-  <div class="card">
-    <h1>你好，GitHub Pages！</h1>
-    <p>这是我部署的第一个静态网页。</p>
-  </div>
+
+    <div class="doors-container">
+        
+        <!-- 左边的门 -->
+        <!-- href 里面填你点击后要跳转的网页链接（现在先写 # 代替） -->
+        <a href="#" class="door door-left">
+            <div class="door-text">🌱 查看我的成长轨迹</div>
+        </a>
+
+        <!-- 右边的门 -->
+        <a href="#" class="door door-right">
+            <div class="door-text">🧩 测测我们的契合程度</div>
+        </a>
+
+    </div>
+
 </body>
 </html>
